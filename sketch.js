@@ -7,13 +7,13 @@ let colourZ;
 
 function setup() {
   createCanvas(600, 400);
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 5; i++) {
     let x = random(width);
     let y = random(height);
     let r = random(20, 60);
-    // colourX = random(0, 255);
-    // colourY = random(255);
-    // colourZ = random(255);
+    colourX = random(0, 255);
+    colourY = random(255);
+    colourZ = random(255);
     let b = new Bubble(x, y, r);
     bubbles.push(b);
   }
@@ -43,19 +43,19 @@ class Bubble {
     this.x = x;
     this.y = y;
     this.r = r;
-    // this.colourX = colourX;
-    // this.colourY = colourY;
-    // this.colourZ = colourZ;
-    this.brightness = 0;
+    this.colourX = colourX;
+    this.colourY = colourY;
+    this.colourZ = colourZ;
+    //this.brightness = 0;
   }
 
   clicked(x, y) {
     let d = dist(x, y, this.x, this.y);
     if (d < this.r) {
-      // this.colourX = random(255);
-      // this.colourY = random(255);
-      // this.colourZ = random(255);
-      this.brightness = 255;
+      this.colourX = random(255);
+      this.colourY = random(255);
+      this.colourZ = random(255);
+      //this.brightness = 255;
       console.log("clicked");
     }
   }
@@ -68,8 +68,8 @@ class Bubble {
   show() {
     stroke(255);
     strokeWeight(4);
-    fill(this.brightness, 125);
-    // fill(this.colourX, this.colourY, this.colourZ);
+    //fill(this.brightness, 125);
+    fill(this.colourX, this.colourY, this.colourZ);
     ellipse(this.x, this.y, this.r * 2);
   }
 
