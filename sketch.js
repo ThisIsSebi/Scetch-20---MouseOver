@@ -11,9 +11,10 @@ function setup() {
     let x = random(width);
     let y = random(height);
     let r = random(20, 60);
-    colourX = random(0, 255);
-    colourY = random(255);
-    colourZ = random(255);
+    colourX = 0;
+    colourY = 0;
+    colourZ = 0;
+    fill(0)
     let b = new Bubble(x, y, r);
     bubbles.push(b);
   }
