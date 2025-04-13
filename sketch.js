@@ -7,6 +7,18 @@ let colourZ;
 
 function setup() {
   createCanvas(600, 400);
+  createBubbles();
+  let button = createButton("clear");
+  button.mousePressed(clearData);
+}
+
+function mousePressed() {
+  for (let i = 0; i < bubbles.length; i++) {
+    bubbles[i].clicked(mouseX, mouseY);
+  }
+}
+
+function createBubbles() {
   for (let i = 0; i < 5; i++) {
     let x = random(width);
     let y = random(height);
@@ -14,17 +26,14 @@ function setup() {
     colourX = 0;
     colourY = 0;
     colourZ = 0;
-    fill(0)
+    fill(0);
     let b = new Bubble(x, y, r);
     bubbles.push(b);
   }
-  button = createButton("Clear");
 }
 
-function mousePressed() {
-  for (let i = 0; i < bubbles.length; i++) {
-    bubbles[i].clicked(mouseX, mouseY);
-  }
+function clearData() {
+  window.location.reload();
 }
 
 // function mousePressed() {
@@ -73,6 +82,4 @@ class Bubble {
     fill(this.colourX, this.colourY, this.colourZ);
     ellipse(this.x, this.y, this.r * 2);
   }
-
-
 }
