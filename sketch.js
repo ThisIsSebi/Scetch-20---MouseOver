@@ -13,24 +13,17 @@ function setup() {
 }
 
 function mousePressed() {
-  let r = random(10, 50);
-  let b = new Bubble(mouseX, mouseY, r);
+  let x = random(width);
+  let y = random(height);
+  let r = random(20, 60);
+  colourX = 0;
+  colourY = 0;
+  colourZ = 0;
+  fill(0);
+  let b = new Bubble(mouseX, mouseY, r, colourX, colourY, colourZ);
   bubbles.push(b);
 }
 
-// function createBubbles() {
-//   for (let i = 0; i < 5; i++) {
-//     let x = random(width);
-//     let y = random(height);
-//     let r = random(20, 60);
-//     colourX = 0;
-//     colourY = 0;
-//     colourZ = 0;
-//     fill(0);
-//     let b = new Bubble(x, y, r);
-//     bubbles.push(b);
-//   }
-// }
 
 function clearData() {
   window.location.reload();
@@ -49,13 +42,13 @@ function draw() {
 }
 
 class Bubble {
-  constructor(x, y, r) {
+  constructor(x, y, r, colourX, colourY, colourZ) {
     this.x = x;
     this.y = y;
     this.r = r;
-    this.colourX = colourX;
-    this.colourY = colourY;
-    this.colourZ = colourZ;
+    this.colourX = random(0,255);
+    this.colourY = random(0,255);
+    this.colourZ = random(0,255);
     //this.brightness = 0;
   }
 
